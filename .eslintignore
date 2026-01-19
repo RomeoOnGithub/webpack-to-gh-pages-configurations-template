@@ -1,0 +1,3 @@
+//eslint ignores certain folders by default,
+//but I don't think that includes the output folder -
+//which is scanned by the webpack integration anyways.
