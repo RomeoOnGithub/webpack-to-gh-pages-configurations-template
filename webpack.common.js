@@ -1,22 +1,23 @@
-const htmlWebpackPlugin = require('html-webpack-plugin') //external plugin (automates an output html file to be in sync with the latest bundled modules)
-const ESLintPlugin = require('eslint-webpack-plugin')
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-module.exports = {
+export default {
     entry: {
         app: './source/main.js'
     },
     plugins: [
-        new htmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             template: './source/template.html', //template for the plugin's generated html file
             filename: 'index.html', //output html filename
-        }),
-        new ESLintPlugin
+        })
     ],
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'] //external packages
+                use: [ //external packages
+                    {loader: 'style-loader', options: {injectType: 'lazyStyleTag'}},
+                    'css-loader'
+                ]
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i, //'i' = case insensitive

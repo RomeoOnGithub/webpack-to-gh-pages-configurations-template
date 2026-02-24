@@ -1,9 +1,9 @@
-const pluginJest = require('eslint-plugin-jest'); //allows ESLint to recognise Jest's variables and logic rules so it can highlight its errors
-const babelParser = require('@babel/eslint-parser'); //allows ESLint to recognise unsupported syntax
-const babelPlugin = require('@babel/eslint-plugin') //allows ESLint to catch errors in unsupported syntax
-const eslintConfigPrettier = require('eslint-config-prettier')
+import pluginJest from 'eslint-plugin-jest' //allows ESLint to recognise Jest's variables and logic rules so it can highlight its errors
+import babelParser from '@babel/eslint-parser' //allows ESLint to recognise unsupported syntax
+import babelPlugin from '@babel/eslint-parser' //allows ESLint to catch errors in unsupported syntax
+import eslintConfigPrettier from 'eslint-config-prettier'
 
-module.exports = [
+export default [
   {
     files: ['**/*.test.js'], //does this cause ESLint to only target test files?
     plugins: {

@@ -1,7 +1,12 @@
-const { merge } = require('webpack-merge') //external tool that supplies the ability for multiple webpack files
-const commonConfigs = require('./webpack.common.js')
+import path from 'path'
+import { merge } from 'webpack-merge'
+import commonConfigs from './webpack.common.js'
+import { fileURLToPath } from 'url';
 
-module.exports = merge(commonConfigs, {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default merge(commonConfigs, {
     mode: "development",
     //type of source map recommended for development builds
     devtool: 'eval-source-map',
