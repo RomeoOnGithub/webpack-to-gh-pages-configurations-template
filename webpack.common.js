@@ -15,7 +15,8 @@ export default {
             {
                 test: /\.css$/,
                 use: [ //external packages
-                    {loader: 'style-loader', options: {injectType: 'lazyStyleTag'}},
+                    //{loader: 'style-loader', options: {injectType: 'lazyStyleTag'}}, //CSS files are programmed in, rather than simply imported - allowing for more granular control
+                    'style-loader',
                     'css-loader'
                 ]
             },
